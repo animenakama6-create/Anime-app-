@@ -26,14 +26,14 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 log = logging.getLogger("joinbot")
 
 # =====================  YAHAN APNI SETTINGS BHARO  =====================
-BOT_TOKEN = "YAHAN_BOT_TOKEN_DAALO"          # @BotFather se mila token
-ADMIN_IDS = {123456789}                      # apni Telegram numeric ID (@userinfobot se)
-MAIN_CHANNEL_LINK = "https://t.me/+YAHAN_MAIN_CHANNEL_LINK"   # main content channel ka link
+BOT_TOKEN = "9151808699:AAE__Hj5ZJV8BJZrF3HsXayDiQN0GoJDcV8"          # @BotFather se mila token
+ADMIN_IDS = {9151808699}                      # apni Telegram numeric ID (@userinfobot se)
+MAIN_CHANNEL_LINK = "https://t.me/Thunber_Anime_Hindi_95"   # main content channel ka link
 
 # Sirf 2 channels join karwane hain: Chat channel aur Movies channel
 CHANNELS = [
-    {"id": -1001111111111, "link": "https://t.me/YAHAN_CHAT_CHANNEL_LINK",   "title": "Chat Channel"},
-    {"id": -1002222222222, "link": "https://t.me/YAHAN_MOVIES_CHANNEL_LINK", "title": "Movies Channel"},
+    {"id": -1004447969394, "link": "https://t.me/Crunchyroll_Discuss",   "title": "Chat Channel"},
+    {"id": , -1003076552128"link": "https://t.me/animemoviesmarathon", "title": "Movies Channel"},
 ]
 DB_PATH = "bot.db"
 # =======================================================================
