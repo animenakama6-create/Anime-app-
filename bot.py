@@ -12,7 +12,9 @@ import asyncio
 import logging
 import os
 import sqlite3
+import threading
 import time
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.constants import ChatMemberStatus
@@ -24,14 +26,14 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 log = logging.getLogger("joinbot")
 
 # =====================  YAHAN APNI SETTINGS BHARO  =====================
-BOT_TOKEN = "9151808699:AAE__Hj5ZJV8BJZrF3HsXayDiQN0GoJDcV8"          # @BotFather se mila token
-ADMIN_IDS = {9151808699}                      # apni Telegram numeric ID (@userinfobot se)
-MAIN_CHANNEL_LINK = "https://t.me/Thunber_Anime_Hindi_95"   # main content channel ka link
+BOT_TOKEN = "YAHAN_BOT_TOKEN_DAALO"          # @BotFather se mila token
+ADMIN_IDS = {123456789}                      # apni Telegram numeric ID (@userinfobot se)
+MAIN_CHANNEL_LINK = "https://t.me/+YAHAN_MAIN_CHANNEL_LINK"   # main content channel ka link
 
 # Sirf 2 channels join karwane hain: Chat channel aur Movies channel
 CHANNELS = [
-    {"id": -1004447969394, "link": "https://t.me/Crunchyroll_Discuss",   "title": "Chat Channel"},
-    {"id": -1003076552128 "link": "https://t.me/animemoviesmarathon", "title": "Movies Channel"},
+    {"id": -1001111111111, "link": "https://t.me/YAHAN_CHAT_CHANNEL_LINK",   "title": "Chat Channel"},
+    {"id": -1002222222222, "link": "https://t.me/YAHAN_MOVIES_CHANNEL_LINK", "title": "Movies Channel"},
 ]
 DB_PATH = "bot.db"
 # =======================================================================
@@ -190,7 +192,30 @@ async def bc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"Broadcast shuru: {len(users)} users.")
 
 
+class _Ping(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Bot is running")
+
+    def do_HEAD(self):
+        self.send_response(200)
+        self.end_headers()
+
+    def log_message(self, *a):
+        pass
+
+
+def keep_alive():
+    """Render Web Service ke liye chhota web-port (UptimeRobot isse ping karega)."""
+    port = int(os.getenv("PORT", "10000"))
+    srv = HTTPServer(("0.0.0.0", port), _Ping)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    log.info("ping server on port %s", port)
+
+
 def main():
+    keep_alive()
     app = Application.builder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("stats", stats))
