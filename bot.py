@@ -27,7 +27,7 @@ log = logging.getLogger("joinbot")
 
 # =====================  YAHAN APNI SETTINGS BHARO  =====================
 BOT_TOKEN = "9151808699:AAE__Hj5ZJV8BJZrF3HsXayDiQN0GoJDcV8"          # @BotFather se mila token
-ADMIN_IDS = {9151808699}                      # apni Telegram numeric ID (@userinfobot se)
+ADMIN_IDS = {8796044668}                      # apni Telegram numeric ID (@userinfobot se)
 MAIN_CHANNEL_LINK = "https://t.me/Thunber_Anime_Hindi_95"   # main content channel ka link
 
 # Sirf 2 channels join karwane hain: Chat channel aur Movies channel
