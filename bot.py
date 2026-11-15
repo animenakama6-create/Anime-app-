@@ -33,7 +33,7 @@ MAIN_CHANNEL_LINK = "https://t.me/Thunber_Anime_Hindi_95"   # main content chann
 # Sirf 2 channels join karwane hain: Chat channel aur Movies channel
 CHANNELS = [
     {"id": -1004447969394, "link": "https://t.me/Crunchyroll_Discuss",   "title": "Chat Channel"},
-    {"id": , -1003076552128"link": "https://t.me/animemoviesmarathon", "title": "Movies Channel"},
+    {"id": -1003076552128, "link": "https://t.me/animemoviesmarathon", "title": "Movies Channel"},
 ]
 DB_PATH = "bot.db"
 # =======================================================================
